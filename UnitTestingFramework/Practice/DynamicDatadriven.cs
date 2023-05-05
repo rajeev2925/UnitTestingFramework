@@ -23,7 +23,7 @@ namespace SAIPCsharp.Practice
         }
         [TestMethod]
         [TestCategory("DynamicDataDriven")]
-        [DynamicData(nameof(data))]
+        [DynamicData(nameof(data),DynamicDataSourceType.Property)]
         public void TestMethod3(int a, int b)
         {
             Console.WriteLine(a + " " + b);
