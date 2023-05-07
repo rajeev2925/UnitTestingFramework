@@ -12,7 +12,7 @@ namespace SAIPCsharp.Practice
     {
 //to access the excell path and sheet name for multiple testmethods am using outside the method and inside the class
 
-        public static string fPath = "CC:\\Users\\admin\\source\\repos\\UnitTestingFramework\\UnitTestingFramework\\TestData\\dataex.xlsx";
+        public static string fPath = "C:\\Users\\admin\\source\\repos\\UnitTestingFramework\\UnitTestingFramework\\TestData\\dataex.xlsx";
 
         public static string sname = "Sheet1";
       

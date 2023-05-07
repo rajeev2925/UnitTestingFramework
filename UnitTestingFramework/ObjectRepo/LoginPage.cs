@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace SAIPCsharp.ObjectRepo
 {
+    
     public class LoginPage
     {
         IWebDriver driver;
@@ -31,7 +32,7 @@ namespace SAIPCsharp.ObjectRepo
             mailid.SendKeys(un);
             password.SendKeys(psw);
             Login_btn.Click();
-            String actprofile = driver.FindElement(By.XPath("//a[.='" + un + "'")).Text;
+            String actprofile = driver.FindElement(By.XPath("//a[.='" + un + "']")).Text;
             try 
             { 
             Assert.IsTrue(actprofile.Contains(un)); 
