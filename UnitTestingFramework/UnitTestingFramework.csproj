@@ -456,6 +456,7 @@
     <Compile Include="Practice\DynamicDatadriven.cs" />
     <Compile Include="Practice\extentpractice.cs" />
     <Compile Include="Practice\Extentreportsclass.cs" />
+    <Compile Include="Practice\reportsextent.cs" />
     <Compile Include="Practice\UnitTest1.cs" />
     <Compile Include="Practice\UnitTest2.cs" />
     <Compile Include="Practice\Programs.cs" />

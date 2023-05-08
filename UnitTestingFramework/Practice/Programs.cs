@@ -128,11 +128,23 @@ namespace UnitTestingFramework.Practice
         public void pgm6()
         {
             int[] num = { 1, 2, 3, 1, 2, 5, 6, 7, 4, 7 };
+           
             for(int i=0; i < num.Length; i++)
             {
-                if (num[i]>2 && num[i]<7)
+                bool flag = false;
+                for (int j=i+1; j<num.Length; j++)
                 {
-                    Console.Write(num[i]+" ");
+                    if (num[i] == num[j])
+                    {
+                        flag=true;
+                        num[j] = 222;
+                        break;
+                    }
+                }
+                if(!flag)
+                {
+                    if (num[i]!=222)
+                    Console.Write(num[i]);
                 }
             }
         }
