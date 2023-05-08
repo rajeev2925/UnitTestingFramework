@@ -11,27 +11,26 @@ using OpenQA.Selenium.Chrome;
 
 namespace UnitTestingFramework.Practice
 {
-    [TestClass]
+   /* [TestClass]
     
-    internal class extentpractice
+    public class extentpractice
     {
-        public IWebDriver driver;
-        public static ExtentReports extentReports;
-        public string screenShotPath;
+        public  IWebDriver driver;
+        public  ExtentReports extentReports;
+        public  string screenShotPath;
         public ExtentTest extentTest;
-        public static ExtentHtmlReporter htmlReporter;
-        public static string testResultPath = "C:\\Users\\admin\\source\\repos\\UnitTestingFramework\\UnitTestingFramework\\reports\\";
+        public  ExtentHtmlReporter htmlReporter;
+        public  string testResultPath = "C:\\Users\\admin\\source\\repos\\UnitTestingFramework\\UnitTestingFramework\\reports\\";
         
 
         [TestInitialize]
-        public void TestInitialize(TestContext testContext)
+        public void TestInitialize()
         {
             driver = new ChromeDriver();
             extentReports = new ExtentReports();
             htmlReporter = new ExtentHtmlReporter(testResultPath);
             htmlReporter.Start();
             extentReports.AttachReporter(htmlReporter);
-          //  Console.WriteLine("Assembly Initialized");
             
         }
         
@@ -65,7 +64,6 @@ namespace UnitTestingFramework.Practice
                 {
                     extentTest.Fail("Test failed");
 
-
                 }
             }
 
@@ -75,11 +73,12 @@ namespace UnitTestingFramework.Practice
         {
             driver.Close();
             driver.Dispose();
+            extentTest.AddScreenCaptureFromPath(screenShotPath);
             extentReports.Flush();
             htmlReporter.Stop();
-            extentTest.AddScreenCaptureFromPath(screenShotPath);
+          
         }
-
-    }
+   
+    }*/
 }
 

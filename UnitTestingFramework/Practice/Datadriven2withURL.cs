@@ -2,7 +2,10 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Reflection;
+using System.Security.Policy;
 using System.Threading;
+using UnitTestingFramework.Practice;
 
 namespace SAIPCsharp
 {
@@ -10,11 +13,13 @@ namespace SAIPCsharp
     public class Datadriven2withURL
     {
         public static IWebDriver driver;
+        Extentreportsclass ec=new Extentreportsclass();
         [TestInitialize]
         public void BMsetups()
         {
             driver = new ChromeDriver();
            driver.Manage().Window.Maximize();
+            
         }
 
         [TestMethod]
@@ -26,6 +31,7 @@ namespace SAIPCsharp
         [DataRow("https://opensource.zalando.com/zalenium/","Zalenium - A flexible and scalable Selenium Grid.")]
         public void TestMethod1(String url,String exptitle)
         {
+            string mname = MethodBase.GetCurrentMethod().Name;
             driver.Url = url;
             string acttitle=driver.Title;
             Console.WriteLine(acttitle);
@@ -49,13 +55,16 @@ namespace SAIPCsharp
                     Console.WriteLine("title not match");
                     Console.WriteLine(e.StackTrace);
                 }
+               
             }
+            ec.extentreportmethod(url);
         }
 
 
         [TestCleanup]
         public void AMsetups()
         {
+          
             driver.Quit();
             driver.Dispose();
         }

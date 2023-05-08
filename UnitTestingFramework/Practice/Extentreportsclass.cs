@@ -1,5 +1,7 @@
 ﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Model;
 using AventStack.ExtentReports.Reporter;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SAIPCsharp.Geniric;
 using System;
 using System.Collections.Generic;
@@ -8,33 +10,35 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace UnitTestingFramework.Practice
 {
-    public class Extentreportsclass
+    public class Extentreportsclass 
     {
-       public static String path = "C:\\Users\\admin\\source\\repos\\UnitTestingFramework\\UnitTestingFramework\\reports\\";
-       public  ExtentTest extentTest;
-       public  ExtentReports extentReports = new ExtentReports();
-       public  ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(path);
-        public void extentreportmethod()
-        {
-            extentTest = extentReports.CreateTest(MethodBase.GetCurrentMethod().Name);
-            string mname=MethodBase.GetCurrentMethod().Name;
+       public  static String path = "C:\\Users\\admin\\source\\repos\\UnitTestingFramework\\UnitTestingFramework\\reports\\";
 
-         if (extentTest.Status.Equals("Fail"))
+        public static ExtentReports extentReports = new ExtentReports();
+        public static ExtentTest extentTest = extentReports.CreateTest(MethodBase.GetCurrentMethod().Name);
+        public ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(path);
+        public void extentreportmethod(string url)
+        {  
+            if(extentTest.Status==Status.Fail)
             {
-                extentTest.Info(mname+"is failed");
+                extentTest.Log(Status.Fail,"this data is failed");
+                extentTest.Info("URL Is : " +url);    
+              
             }
-         else if(extentTest.Status.Equals("Skip"))
+            else if (extentTest.Status==Status.Pass)
             {
-                extentTest.Info(mname + "is Skipped");
+                extentTest.Log(Status.Pass, " data is passed");
+                extentTest.Info("URL Is : " + url);
             }
-         else if(extentTest.Status.Equals("Pass"))
+            else if (extentTest.Status == Status.Skip)
             {
-                extentTest.Info(mname + "is passed");
+                extentTest.Log(Status.Info, "skipped");
             }
-
         }
+            
     }
 }

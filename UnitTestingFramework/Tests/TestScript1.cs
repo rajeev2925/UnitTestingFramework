@@ -20,7 +20,7 @@ namespace SAIPCsharp.Tests
         [TestCategory("Regression")]
         public void Script1()
         {
-           String un=exUtil.Get_value_by_pasing_key("Wbook", "username");
+            String un=exUtil.Get_value_by_pasing_key("Wbook", "username");
             String psw = exUtil.Get_value_by_pasing_key("Wbook", "password");
             MessageBox.Show(un+" "+psw);
             LoginPage lp=new LoginPage(driver);

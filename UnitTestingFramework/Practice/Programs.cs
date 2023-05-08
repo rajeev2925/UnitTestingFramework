@@ -13,10 +13,10 @@ namespace UnitTestingFramework.Practice
         {
             string substr = null;
             string input = "aaabbccddbb";
-            char c = input[0];
+            char c = input[0]; //a b
             for (int i = 0; i < input.Length; i++)
             {
-                char ch = input[i];
+                char ch = input[i]; //a a a b
                 if (c == ch)
                 {
                     substr += ch;
