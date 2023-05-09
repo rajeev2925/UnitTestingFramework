@@ -28,13 +28,12 @@ namespace SAIPCsharp.Geniric
         {
             Extentreportsclass.extentReports.AttachReporter(ec.htmlReporter);
             ec.htmlReporter.Start();
-            Extentreportsclass.extentTest.Log(Status.Info, "assemply intialized");
+            ec.extentTest.Log(Status.Info, "assemply intialized");
         }
        
        [TestInitialize] 
         public void Init()
         {
-            
             exUtil = new Excellutility();
             wUtil = new Webdriverutilities();
             driver  = new ChromeDriver();
@@ -45,20 +44,17 @@ namespace SAIPCsharp.Geniric
         [TestCleanup]
         public void Cleanup()
         {
-          //  ec.extentreportmethod();
-            Extentreportsclass.extentTest.AddScreenCaptureFromPath(screenShotPath);
-            ec.extentreportmethod(null);
+            ec.extentTest.AddScreenCaptureFromPath(screenShotPath);
+            ec.extentreportmethod(driver);
             driver.Quit();
             driver.Dispose(); 
         }
 
        [AssemblyCleanup]   
-        public static void assemplycleanip()
-        {
-
+        public static void assemplycleanup()
+        { 
             Extentreportsclass.extentReports.Flush();
             ec.htmlReporter.Stop();
-        }
-    
+        } 
     }
 }

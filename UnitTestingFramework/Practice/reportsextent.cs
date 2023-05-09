@@ -15,14 +15,8 @@ namespace UnitTestingFramework.Practice
 {
     public class reportsextent
     {
-       /* public static TestContext testContext;
+      
 
-        public TestContext TestContext
-        {
-            get { return testContext; }
-            set { testContext = value; }
-        }
-*/
 
       public static String rpath = "C:\\Users\\admin\\source\\repos\\UnitTestingFramework\\UnitTestingFramework\\reports\\";
 
